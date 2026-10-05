@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./agbada.css">
+    <title>SHILÉ | Agbada Collection</title>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="/image/e443a3f2-046b-4107-af96-0dde723eb6fa_removalai_preview.png" alt="">
+            <!-- SHILÉ -->
+            <!-- <span>BESPOKE FASHION & TAILORING</span> -->
+        </div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="./pages/collections.html">Collections</a>
+            <a href="./pages/services.html">Services</a>
+            <a href="./pages/about.html">About</a>
+            <a href="./pages/contact.html">Contact</a>
+        </nav>
+        <a href="./pages/contact.html" class="booking-btn">Book Appointment</a>
+
+        <button class="btn-menu">
+            <i class="fa-solid fa-bars icon"></i>
+            <div class="menu">
+                <a href="../index.html">Home</a>
+                <a href="./pages/collections.html">Collections</a>
+                <a href="./pages/services.html">Services</a>
+                <a href="./pages/about">About</a>
+                <a href="./pages/contact">Contact</a>
+            </div>
+            <!-- <div class="book-btn">
+                <a href="./pages/contact.html" class="booking">Book Appointment</a> -->
+            <!-- </div> -->
+        </button>
+    </header>
+
+
+    <!-- COLLECTION HERO -->
+    <section class="collection-hero">
+
+        <div class="collection-hero-content">
+            <span>SHILÉ COLLECTION</span>
+
+            <h1>AGBADA</h1>
+
+            <p>
+                Discover our collection of refined Agbada pieces,
+                crafted with precision and designed for distinction.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="collection-products">
+
+        <div class="collection-heading">
+            <span>THE COLLECTION</span>
+
+            <h2>AGBADA PIECES</h2>
+
+            <p>
+                Explore carefully crafted pieces made for
+                elegance, confidence and timeless style.
+            </p>
+        </div>
+
+
+        <div class="product-grid">
+
+            <!-- PRODUCT 1 -->
+            <div class="product-card">
+
+                <img 
+                    src="../image/White Babban Riga Design.jfif" 
+                    alt="Royal Agbada"
+                >
+
+                <h3>Royal Agbada</h3>
+
+                <a href="./product-details.html?id=1">Explore →</a>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+            <div class="product-card">
+
+                <img 
+                    src="../image/download (4).jfif" 
+                    alt="Classic Agbada"
+                >
+
+                <h3>Classic Agbada</h3>
+
+                <a href="./product-details.html?id=2">Explore →</a>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+            <div class="product-card">
+
+                <img 
+                    src="../image/download (5).jfif" 
+                    alt="Signature Agbada"
+                >
+
+                <h3>Signature Agbada</h3>
+
+                <a href="./product-details.html?id=3">Explore →</a>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+            <div class="product-card">
+
+                <img 
+                    src="../image/download (6).jfif" 
+                    alt="Executive Agbada"
+                >
+
+                <h3>Executive Agbada</h3>
+
+                <a href="./product-details.html?id=4">Explore →</a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+        <!-- We'll build the SHILÉ footer later -->
+    </footer>
+
+
+    <script>
+        // MOBILE MENU TOGGLE
+let btnMenu = document.querySelector('.btn-menu');
+let menuDropdown = document.querySelector('.btn-menu .menu');
+
+btnMenu.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menuDropdown.classList.toggle('open');
+});
+
+document.addEventListener('click', (e) => {
+    if (!btnMenu.contains(e.target)) {
+        menuDropdown.classList.remove('open');
+    }
+});
+    </script>
+
+</body>
+</html>

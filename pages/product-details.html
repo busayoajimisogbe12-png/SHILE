@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SHILÉ | Product Details</title>
+
+    <link rel="stylesheet" href="./product-details.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="/image/e443a3f2-046b-4107-af96-0dde723eb6fa_removalai_preview.png" alt="">
+            <!-- SHILÉ -->
+            <!-- <span>BESPOKE FASHION & TAILORING</span> -->
+        </div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="./pages/collections.html">Collections</a>
+            <a href="./pages/services.html">Services</a>
+            <a href="./pages/about.html">About</a>
+            <a href="./pages/contact.html">Contact</a>
+        </nav>
+        <a href="./pages/contact.html" class="booking-btn">Book Appointment</a>
+
+        <button class="btn-menu">
+            <i class="fa-solid fa-bars icon"></i>
+            <div class="menu">
+                <a href="../index.html">Home</a>
+                <a href="./pages/collections.html">Collections</a>
+                <a href="./pages/services.html">Services</a>
+                <a href="./pages/about">About</a>
+                <a href="./pages/contact">Contact</a>
+            </div>
+            <!-- <div class="book-btn">
+                <a href="./pages/contact.html" class="booking">Book Appointment</a> -->
+            <!-- </div> -->
+        </button>
+    </header>
+
+
+    <!-- PRODUCT DETAILS -->
+
+    <main class="product-details">
+
+        <div class="product-details-image">
+            <img id="productImage" src="" alt="">
+        </div>
+
+
+        <div class="product-details-info">
+
+            <span id="productCategory">
+                SHILÉ COLLECTION
+            </span>
+
+            <h1 id="productName"></h1>
+
+            <h2 id="productPrice"></h2>
+
+            <p id="productDescription"></p>
+
+
+            <div class="product-option">
+
+                <label for="size">
+                    Select Size
+                </label>
+
+                <select id="size">
+
+                    <option value="">Choose Size</option>
+                    <option value="S">Small</option>
+                    <option value="M">Medium</option>
+                    <option value="L">Large</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="product-actions">
+
+                <button id="addToCart">
+                    Add to Cart
+                </button>
+
+                <a href="./contact.html">
+                    Book Appointment
+                </a>
+
+            </div>
+
+
+            <a class="back-to-collection"
+               href="./agbada.html">
+
+                ← Back to Collection
+
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        let params = new URLSearchParams(window.location.search);
+
+        let productId = params.get("id");
+
+
+        let products = [
+
+        {
+            id: 1,
+            name: "Royal Agbada",
+            category: "AGBADA COLLECTION",
+            price: "₦250,000",
+            image: "../image/White Babban Riga Design.jfif",
+            description: "A refined bespoke Agbada crafted with attention to detail, elegance and timeless Nigerian style."
+        },
+
+        {
+            id: 2,
+            name: "Classic Agbada",
+            category: "AGBADA COLLECTION",
+            price: "₦220,000",
+            image: "../image/download (5).jfif",
+            description: "A classic Agbada design combining traditional elegance with a clean contemporary finish."
+        },
+
+        {
+            id: 3,
+            name: "Signature Agbada",
+            category: "AGBADA COLLECTION",
+            price: "₦280,000",
+            image: "../image/download (3).jfif",
+            description: "A signature SHILÉ piece designed for a distinctive presence and carefully finished craftsmanship."
+        },
+
+        {
+            id: 4,
+            name: "Executive Agbada",
+            category: "AGBADA COLLECTION",
+            price: "₦300,000",
+            image: "../image/download (6).jfif",
+            description: "An elegant executive Agbada created for formal occasions, confidence and sophisticated style."
+        }
+
+        ];
+
+
+        let selectedProduct = products.find(
+        product => product.id == productId
+        );
+
+
+        document.getElementById("productImage").src =
+        selectedProduct.image;
+
+        document.getElementById("productImage").alt =
+        selectedProduct.name;
+
+        document.getElementById("productName").textContent =
+        selectedProduct.name;
+
+        document.getElementById("productCategory").textContent =
+        selectedProduct.category;
+
+        document.getElementById("productPrice").textContent =
+        selectedProduct.price;
+
+        document.getElementById("productDescription").textContent =
+        selectedProduct.description;
+
+        let addToCart = document.getElementById('addToCart');
+        addToCart.addEventListener("click", ()=>{
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            
+            let existingProduct = cart.find(
+                product => product.id === selectedProduct.id
+            );
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                selectedProduct.quantity += 1
+                cart.push(selectedProduct)
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            // alert("Product added to cart")
+            window.location.href = "./cart.html"
+        })
+        console.log(selectedProduct);
+        
+
+    </script>
+
+</body>
+</html>

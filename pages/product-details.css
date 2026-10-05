@@ -1,0 +1,529 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f8f5ef;
+    color: #111;
+}
+
+    /* NAVBAR */
+
+.navbar{
+    width: 100%;
+    height: 90px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e0d8;
+    position: sticky;
+}
+
+    /* LOGO */
+.logo{
+    /* font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px; */
+    /* background-color: #b38a45;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center; */
+    /* background-color: green; */
+    width: 200px;
+}
+.logo img{
+    width: 90px;
+    margin-top: -10px;
+    margin-left: 60px;
+}
+.logo span{
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 8px;
+    text-align: center;
+    /* margin-top: -20px; */
+}
+
+    /* NAVIGATION */
+nav {
+    /* background-color: red; */
+    width: 400px;
+    justify-content: center;
+    display: flex;
+    margin-left: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+nav a{
+    text-decoration: none;
+    color: #222;
+    font-size: 13px;
+    transition: 0.3s;
+    font-family: "Montserrat", sans-serif;
+}
+nav a:hover{
+    color: #b38a45;
+}
+
+    /* BOOKING BUTTON */
+.booking-btn{
+    text-decoration: none;
+    background-color: #151515;
+    color: white;
+    padding: 13px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: 0.3;
+    /* border-radius: 10px; */
+}
+.booking-btn:hover{
+    background-color: #b38a45;
+}
+
+/* ================================
+   MOBILE MENU BUTTON (hidden on desktop)
+================================ */
+.btn-menu {
+    position: relative;
+    background: red;
+    border: none;
+    cursor: pointer;
+    /* z-index: 1000; */
+}
+ .icon {
+    display: none;
+    font-size: 30px;
+    color: #111;
+}
+.menu {
+    position: absolute;
+    top: 39px;
+    right: -19.5px;
+    background: #fff;
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    /* border: 1px solid #e5e0d8; */
+    /* padding: 10px 0; */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: 0.25s ease;
+    z-index: 2000;
+}
+.btn-menu .menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+ .menu a {
+    padding: 12px 20px;
+    line-height: 30px;
+    text-decoration: none;
+    color: #222;
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif;
+    border-bottom: 1px solid #f1ede4;
+}
+.btn-menu .menu a:last-of-type {
+    border-bottom: none;
+}
+.btn-menu .menu a:hover {
+    color: #b38a45;
+}
+.btn-menu .book-btn {
+    padding: 10px 20px;
+}
+
+/* =========================================
+   PRODUCT DETAILS PAGE
+========================================= */
+
+.product-details {
+    width: 100%;
+    min-height: 80vh;
+
+    padding: 80px 7%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+    background-color: #f8f5ef;
+}
+
+
+/* =========================================
+   PRODUCT IMAGE
+========================================= */
+
+.product-details-image {
+    width: 100%;
+    height: 650px;
+
+    overflow: hidden;
+}
+
+.product-details-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* =========================================
+   PRODUCT INFORMATION
+========================================= */
+
+.product-details-info {
+    max-width: 520px;
+}
+
+.product-details-info > span {
+    display: block;
+
+    margin-bottom: 18px;
+
+    font-size: 12px;
+    letter-spacing: 3px;
+
+    color: #b08d45;
+}
+
+
+.product-details-info h1 {
+    margin: 0 0 15px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(40px, 5vw, 65px);
+
+    font-weight: 400;
+
+    line-height: 1.1;
+
+    color: #111;
+}
+
+
+.product-details-info h2 {
+    margin: 0 0 25px;
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+    color: #b08d45;
+}
+
+
+.product-details-info > p {
+    margin-bottom: 35px;
+
+    max-width: 480px;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    color: #666;
+}
+
+
+/* =========================================
+   SIZE SELECT
+========================================= */
+
+.product-option {
+    margin-bottom: 30px;
+}
+
+.product-option label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    color: #222;
+}
+
+.product-option select {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 1px solid #ccc;
+
+    background-color: transparent;
+
+    font-size: 14px;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+.product-option select:focus {
+    border-color: #b08d45;
+}
+
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+.product-actions {
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 30px;
+}
+
+
+.product-actions button,
+.product-actions a {
+    min-height: 48px;
+
+    padding: 14px 25px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.product-actions button {
+    background-color: #111;
+
+    color: #fff;
+}
+
+
+.product-actions button:hover {
+    background-color: #b08d45;
+}
+
+
+.product-actions a {
+    border: 1px solid #111;
+
+    color: #111;
+}
+
+
+.product-actions a:hover {
+    background-color: #111;
+
+    color: #fff;
+}
+
+
+/* =========================================
+   BACK LINK
+========================================= */
+
+.back-to-collection {
+    font-size: 13px;
+
+    color: #666;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.back-to-collection:hover {
+    color: #b08d45;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+    .navbar {
+        padding: 0 4%;
+    }
+    nav {
+        gap: 18px;
+    }
+    nav a {
+        font-size: 12px;
+    }
+    .product-details {
+        padding: 65px 5%;
+
+        gap: 40px;
+    }
+
+    .product-details-image {
+        height: 550px;
+    }
+
+}
+
+@media (max-width: 860px) {
+    nav {
+        display: none; /* full nav hidden, hamburger takes over */
+    }
+    .booking-btn {
+        display: none; /* moved into hamburger menu */
+    }
+    .btn-menu {
+        display: block;
+    }
+    .btn-menu .icon{
+        display: block;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+    .navbar {
+        height: 70px;
+        padding: 0 20px;
+    }
+    .logo img {
+        width: 65px;
+        margin-top: 0;
+    }
+    .product-details {
+        display: flex;
+
+        flex-direction: column;
+
+        padding: 40px 20px 60px;
+
+        gap: 35px;
+
+        align-items: stretch;
+    }
+
+
+    /* IMAGE */
+
+    .product-details-image {
+        width: 100%;
+
+        height: 430px;
+    }
+
+
+    /* INFORMATION */
+
+    .product-details-info {
+        max-width: none;
+    }
+
+
+    .product-details-info > span {
+        font-size: 10px;
+
+        letter-spacing: 2.5px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .product-details-info h1 {
+        font-size: 38px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .product-details-info h2 {
+        font-size: 18px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .product-details-info > p {
+        font-size: 14px;
+
+        line-height: 1.7;
+
+        margin-bottom: 25px;
+    }
+
+
+    /* BUTTONS */
+
+    .product-actions {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+
+    .product-actions button,
+    .product-actions a {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+    .icon{
+        font-size: 25px;
+    }
+    .logo{
+        margin-left: -50px;
+    }
+    .product-details {
+        padding: 30px 15px 50px;
+    }
+
+
+    .product-details-image {
+        height: 350px;
+    }
+
+
+    .product-details-info h1 {
+        font-size: 32px;
+    }
+
+}

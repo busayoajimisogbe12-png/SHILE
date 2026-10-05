@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SHILÉ | Shopping Cart</title>
+
+    <link rel="stylesheet" href="./cart.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ================================
+         CART PAGE
+    ================================= -->
+
+    <section class="cart-page">
+
+        <div class="cart-container">
+
+            <h1>Your Cart</h1>
+
+            <p class="cart-subtitle">
+                Review your selected pieces before proceeding.
+            </p>
+
+            <!-- PRODUCTS WILL APPEAR HERE -->
+            <div id="cart-container"></div>
+
+            <!-- CART SUMMARY -->
+            <div class="cart-summary">
+
+                <h2>Order Summary</h2>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal">₦0</span>
+                </div>
+
+                <div class="summary-row">
+                    <span>Delivery</span>
+                    <span>Calculated at checkout</span>
+                </div>
+
+                <div class="summary-total">
+                    <span>Total</span>
+                    <span id="cart-total">₦0</span>
+                </div>
+
+                <a href="./contact.html" class="checkout-btn">
+                    Proceed to Appointment
+                </a>
+
+                <a href="./collections.html" class="continue-shopping">
+                    ← Continue Shopping
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- <script src="../index.js"></script> -->
+    <script>
+
+    let cartContainer = document.getElementById("cart-container");
+    let cartSubtotal = document.getElementById("cart-subtotal");
+    let cartTotal = document.getElementById("cart-total");
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+
+    function displayCart() {
+
+        cartContainer.innerHTML = "";
+
+        if (cart.length === 0) {
+
+            cartContainer.innerHTML = `
+                <div class="empty-cart">
+                    <i class="bi bi-cart3"></i>
+
+                    <h2>Your cart is empty</h2>
+
+                    <p>
+                        You haven't added any pieces to your cart yet.
+                    </p>
+
+                    <a href="./collections.html">
+                        Explore Collections
+                    </a>
+                </div>
+            `;
+
+            cartSubtotal.textContent = "₦0";
+            cartTotal.textContent = "₦0";
+
+            return;
+        }
+
+
+        let total = 0;
+
+
+        cart.forEach((product, index) => {
+
+            total += Number(product.price.replace(/[^0-9.-]+/g, ""));
+
+            cartContainer.innerHTML += `
+
+                <div class="cart-item">
+
+                    <img 
+                        src="${product.image}" 
+                        alt="${product.name}"
+                    >
+
+                    <div class="cart-item-info">
+
+                        <h3>${product.name}</h3>
+
+                        <p>${product.category}</p>
+
+                        <strong>${product.price}</strong>
+
+                        <div class="cart-actions">
+
+                            <button onclick="removeItem(${index})">
+                                Remove
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+        });
+
+
+        cartSubtotal.textContent =
+            "₦" + total.toLocaleString();
+
+        cartTotal.textContent =
+            "₦" + total.toLocaleString();
+    }
+
+
+    function removeItem(index) {
+
+        cart.splice(index, 1);
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(cart)
+        );
+
+        displayCart();
+    }
+
+
+    displayCart();
+
+</script>
+
+</body>
+</html>
